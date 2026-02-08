@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  <category>
+    <pattern>HELLO MY NAME IS *</pattern>
+    <template>Hi <set name = "username"><star /></set></template>
+  </category>
+  
+  <category>
+      <pattern>I need help *</pattern>
+      <template>What can I help you with? You can ask me about jobs! What do you want to learn about?</template>
+  </category>
+  
+  <category>
+      <pattern>I want to learn about *</pattern>
+      <template>What subjects do you like? That will help me narrow it down.</template>
+  </category>
+  
+  
+  <category>
+      <pattern>I like *</pattern>
+      <template>
+          <think><set name="subject"><star /></set></think>
+          <condition name="subject"> 
+            <li value="web development">Web Developer or UX design would be a great job! Would you like to know more about web development?</li>
+            <li value="security">Cyber Security or a database manager would be a great job! Would you like to know more about cyber security?</li>
+            <li value="data structures">Software Engineer could be a great job! Would you like to know more about software engineering?</li>
+            <li>I don't know about those subjects, but perhaps you'd like to hear about web development, security, or data structures related jobs?</li>
+          </condition>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>ok</pattern>
+      <template>Great! Let me know which subjects you like out of those options!</template>
+  </category>
+  <category>
+      <pattern>ok *</pattern>
+      <template>Great! Let me know which subjects you like out of those options!</template>
+  </category>
+  
+    <category>
+      <pattern>YES</pattern>
+          <template>
+            <condition name="subject">
+              <li value="web development">
+                <think><set name="topic">webDevelopment</set></think>
+                Great! Do you enjoy building things more, or being creative with design?
+              </li> 
+              <li value="data structures">
+                <think><set name="topic">dataStructures</set></think>
+                Great! Do you enjoy creating products or learning about AI more?
+              </li>
+              <li value="security">
+                <think><set name="topic">cyberSecurity</set></think>
+                Great! Do you enjoy learning about cyber attacks or working with databases more?
+              </li>
+            </condition>
+          </template>
+    </category>
+    
+     <topic name="cyberSecurity">
+        <category>
+            <pattern>LEARNING</pattern>
+            <template>Great! Becoming a cyber security engineer would fit your interests!</template>
+        </category>
+        <category>
+            <pattern>* LEARNING *</pattern>
+            <template>Great! Becoming a cyber security engineer would fit your interests!</template>
+        </category>
+        <category>
+            <pattern>* LEARNING</pattern>
+            <template>Great! Becoming a cyber security engineer would fit your interests!</template>
+        </category>
+        <category>
+            <pattern>WORKING</pattern>
+            <template>Great! Becoming a security database engineer would fit your interests!</template>
+        </category>
+        <category>
+            <pattern>* WORKING *</pattern>
+            <template>Great! Becoming a security database engineer would fit your interests!</template>
+        </category>
+        <category>
+            <pattern>* WORKING</pattern>
+            <template>Great! Becoming a security database engineer would fit your interests!</template>
+        </category>
+    </topic>
+    
+    <topic name="webDevelopment">
+        <category>
+            <pattern>BUILDING</pattern>
+            <template>Great! Becoming a web developer would fit your interests!</template>
+        </category>
+        <category>
+            <pattern>* BUILDING *</pattern>
+            <template>Great! Becoming a web developer would fit your interests!</template>
+        </category>
+        <category>
+            <pattern>* BUILDING</pattern>
+            <template>Great! Becoming a web developer would fit your interests!</template>
+        </category>
+        <category>
+            <pattern>CREATIVE</pattern>
+            <template>Great! Becoming a UX designer would fit your interests!</template>
+        </category>
+        <category>
+            <pattern>* CREATIVE *</pattern>
+            <template>Great! Becoming a UX designer would fit your interests!</template>
+        </category>
+        <category>
+            <pattern>* CREATIVE</pattern>
+            <template>Great! Becoming a UX designer would fit your interests!</template>
+        </category>
+    </topic>
+    
+    
+    <topic name="dataStructures">
+        <category>
+            <pattern>CREATING</pattern>
+            <template>Great! Becoming a software engineer would fit your interests!</template>
+        </category>
+        <category> 
+            <pattern>* CREATING *</pattern>
+            <template>Great! Becoming a software engineer would fit your interests!</template>
+        </category>
+        <category> 
+            <pattern>* CREATING</pattern>
+            <template>Great! Becoming a software engineer would fit your interests!</template>
+        </category>
+        <category>
+            <pattern>LEARNING</pattern>
+            <template>Great! Becoming a software engineer would fit your interests!</template>
+        </category>
+        <category>
+            <pattern>* LEARNING *</pattern>
+            <template>Great! Becoming a software engineer would fit your interests!</template>
+        </category>
+        <category>
+            <pattern>* LEARNING</pattern>
+            <template>Great! Becoming a software engineer would fit your interests!</template>
+        </category>
+    </topic>
+    
+    
+    
+<category>
+  <pattern>RESET</pattern>
+  <template>
+    <think>
+      <set name="topic">*</set>
+      <set name="subject">*</set>
+      <set name="username">*</set>
+    </think>
+    Chat has been reset. Hi! What would you like to talk about?
+  </template>
+</category>
+  
+
+</aiml>
